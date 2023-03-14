@@ -30,6 +30,23 @@ router.post("/new", async function (req, res, next) {
   }
 });
 
+router.get("/name", async function (req, res, next) {
+  try {
+    const name = req.query.name;
+    console.log(name);
+    if (onlyLettersAndNumbers(name)) {
+      const findeRobot = await Robot.find({
+        name: { $regex: name, $options: "i" },
+      });
+      res.json({ findeRobot });
+    } else {
+      res.status(422).send("username can only have letters and numbers");
+    }
+  } catch (error) {
+    res.sendStatus(500).send("maybe wrong query params");
+  }
+});
+
 router.get("/:id", async function (req, res, next) {
   const id = req.params.id;
   console.log(id);
