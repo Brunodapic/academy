@@ -43,7 +43,7 @@ router.get("/name", async function (req, res, next) {
       res.status(422).send("username can only have letters and numbers");
     }
   } catch (error) {
-    res.sendStatus(500).send("maybe wrong query params");
+    res.status(500).send("maybe wrong query params");
   }
 });
 
