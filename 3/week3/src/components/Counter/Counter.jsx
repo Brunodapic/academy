@@ -1,7 +1,13 @@
 import React, { memo, useState, useEffect } from "react";
 import Button from "../Buttons/Button";
 
-function Counter({totalCount, addToTotal,initialCounter,removeCounterFromState,counterId}) {
+function Counter({
+  totalCount,
+  addToTotal,
+  initialCounter,
+  removeCounterFromState,
+  counterId,
+}) {
   const [counter, setCounter] = useState({ count: initialCounter });
 
   useEffect(() => {
@@ -14,36 +20,36 @@ function Counter({totalCount, addToTotal,initialCounter,removeCounterFromState,c
     };
   }, []);
 
-  const plus = () =>{
+  const plus = () => {
     counter.count = counter.count + 1;
     setCounter({ ...counter });
-    addToTotal(+1)
-  }
+    addToTotal(+1);
+  };
 
-  const minus = () =>{
+  const minus = () => {
     counter.count = counter.count - 1;
     setCounter({ ...counter });
-    addToTotal(-1)
-  }
+    addToTotal(-1);
+  };
 
-  const deleteCounter = () =>{
-    addToTotal(-counter.count)                 //removes the value od this counter from sum of all
-    removeCounterFromState(counterId)
-  }
+  const deleteCounter = () => {
+    addToTotal(-counter.count); //removes the value od this counter from sum of all
+    removeCounterFromState(counterId);
+  };
   return (
     <div>
-      <p style={{ marginBottom: "0" }}>Clicks: {counter.count} / {totalCount}</p>
-      
-      <Button text={"Remove Counter"} buttonFunction={deleteCounter}/>
-      
-      <div>
-        <Button text={"+"} buttonFunction={plus}/>
-        <Button text={"-"} buttonFunction={minus}/>
+      <p style={{ marginBottom: "0" }}>
+        Clicks: {counter.count} / {totalCount}
+      </p>
 
+      <Button text={"Remove Counter"} buttonFunction={deleteCounter} />
+
+      <div style={{ display: "flex" }}>
+        <Button text={"+"} buttonFunction={plus} />
+        <Button text={"-"} buttonFunction={minus} />
       </div>
     </div>
   );
 }
 
-
-export default memo(Counter)
+export default memo(Counter);

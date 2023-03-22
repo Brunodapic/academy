@@ -1,5 +1,6 @@
 .btnAddMinus {
+    box-sizing: border-box;
     text-align: center;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    width: 100%;
+
 }

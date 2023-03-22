@@ -11,16 +11,15 @@ function App() {
   };
 
   const addCounter = () => {
-    let max=-1
-    if(countersList.length!==0){
-      max = countersList.reduce((a,b)=>a.id>b.id?a:b).id;
+    let max = -1;
+    if (countersList.length !== 0) {
+      max = countersList.reduce((a, b) => (a.id > b.id ? a : b)).id;  //this way NEW id is allways unique
     }
-    setCountersList([...countersList, { id: max+1 }]);
-  }
+    setCountersList([...countersList, { id: max + 1 }]);
+  };
+
   const removeCounterFromState = (counter) => {
-    let filteredArray = countersList.filter(
-      (item) => item.id !== counter
-    );
+    let filteredArray = countersList.filter((item) => item.id !== counter);
     console.log(filteredArray);
     setCountersList([...filteredArray]);
   };
@@ -29,6 +28,7 @@ function App() {
     <div className={styles.App}>
       <header className={styles.AppHeader}>
         <button onClick={addCounter}>ADD counter</button>
+        Total count : {totalCount}
         {countersList.map((item) => {
           return (
             <Counter
@@ -41,7 +41,7 @@ function App() {
             />
           );
         })}
-        Total count : {totalCount}
+        
       </header>
     </div>
   );
