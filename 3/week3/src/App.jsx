@@ -20,7 +20,6 @@ function App() {
 
   const removeCounterFromState = (counter) => {
     let filteredArray = countersList.filter((item) => item.id !== counter);
-    console.log(filteredArray);
     setCountersList([...filteredArray]);
   };
 
