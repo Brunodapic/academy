@@ -9,4 +9,4 @@ function Button({ buttonFunction, text }) {
   );
 }
 
-export default Button;
+export default memo(Button);
