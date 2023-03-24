@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import React, { memo, useState, useEffect, useCallback } from "react";
 import Button from "../Buttons/Button";
 
 function Counter({
@@ -20,22 +20,23 @@ function Counter({
     };
   }, []);
 
-  const plus = () => {
+  const plus = useCallback(() => {
     counter.count = counter.count + 1;
     setCounter({ ...counter });
     addToTotal(+1);
-  };
+  }, [addToTotal, counter]);
 
-  const minus = () => {
+  const minus = useCallback(() => {
     counter.count = counter.count - 1;
     setCounter({ ...counter });
     addToTotal(-1);
-  };
+  }, [addToTotal, counter]);
 
-  const deleteCounter = () => {
+  const deleteCounter = useCallback(() => {
     addToTotal(-counter.count); //removes the value od this counter from sum of all
     removeCounterFromState(counterId);
-  };
+  },[addToTotal, counter.count, counterId, removeCounterFromState]);
+
   return (
     <div>
       <p style={{ marginBottom: "0" }}>

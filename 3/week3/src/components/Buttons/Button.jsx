@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import styles from "./Button.module.css";
 
 function Button({ buttonFunction, text }) {
