@@ -8,6 +8,7 @@ const Navigation = () => {
         <div className={styles.container}>
             <NavLink label="Home" to={"/"} />
             <NavLink label="Create" to={"/create"} />
+
         </div>
     )
 }

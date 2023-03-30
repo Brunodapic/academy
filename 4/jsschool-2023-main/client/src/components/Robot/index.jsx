@@ -19,7 +19,7 @@ const Robot = (props) => {
     const { type = 0, name } = props;
     
     return (
-        <div className={styles.tile}>
+        <div className={styles.tile} onClick={()=>props.onClick()}>
             <div className={styles.robotContainer}>
                 <img className={styles.robot} src={robots[type]} alt="robot" />
             </div>
