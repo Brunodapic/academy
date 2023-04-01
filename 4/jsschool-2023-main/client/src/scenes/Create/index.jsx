@@ -54,7 +54,11 @@ const Create = () => {
           name,
           type: currentRobot,
         };
+
+
         const response= await axios.put("api/robot/update",{ robotId,name, type: currentRobot });
+
+        
         //const response= await axios.put("http://localhost:3001/api/robot/update",{ robotId,name, type: currentRobot });
         /*const response = await fetch("api/robot/update", {
           method: "PUT",
